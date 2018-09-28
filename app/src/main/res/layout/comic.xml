@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.marvel.malavet.marvel.Main">
+
+        <ImageView
+            android:id="@+id/marvel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/marvel"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_below="@id/image"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000"
+            android:textSize="15sp"/>
+        <Button
+            android:id="@+id/button"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/title"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Get Comic Info" />
+
+
+</RelativeLayout>

@@ -70,23 +70,28 @@ public class Main extends AppCompatActivity {
         HashMap<String, String> hm = apiHash.makeApiParam();
         String hash = hm.get("hash");
         Log.d("hash", hm.get("hash"));
-        Call<MarvelInitialObject> call = service.getComic(comicID, apiHash.makeApiParam());
-        call.enqueue(new Callback<MarvelInitialObject>() {
-            @Override
-            public void onResponse(Call<MarvelInitialObject> call, Response<MarvelInitialObject> response) {
-                progress.dismiss();
-                context = context;
-                Data rNew = response.body().getData();
-                Result r = rNew.getResults().get(0);
-                placeResults(r);
-            }
+        if (apiHash.publicKey==""){
+            Toast.makeText(Main.this, "Please enter PUBLIC and PRIVATE keys in APIHash class", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Call<MarvelInitialObject> call = service.getComic(comicID, apiHash.makeApiParam());
+            call.enqueue(new Callback<MarvelInitialObject>() {
+                @Override
+                public void onResponse(Call<MarvelInitialObject> call, Response<MarvelInitialObject> response) {
+                    progress.dismiss();
+                    context = context;
+                    Data rNew = response.body().getData();
+                    Result r = rNew.getResults().get(0);
+                    placeResults(r);
+                }
 
-            @Override
-            public void onFailure(Call<MarvelInitialObject> call, Throwable t) {
-                progress.dismiss();
-                Toast.makeText(Main.this, "error", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onFailure(Call<MarvelInitialObject> call, Throwable t) {
+                    progress.dismiss();
+                    Toast.makeText(Main.this, "error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     //place API results in layout

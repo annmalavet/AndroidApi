@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class APIHash {
     public static HashMap<String, String> data = new HashMap<>();
-    String publicKey = "f93dccde9140de1f8d695830a1d7d260";
-    String privateKey = "cbe47ebc281ccecf3d5946d4a5ba5e6867705fce";
+    String publicKey = "";
+    String privateKey = "";
 
 
     public HashMap makeApiParam() {

@@ -2,6 +2,7 @@ package com.marvel.malavet.marvel;
 
 import com.marvel.malavet.marvel.Models.ComicBookObject.MarvelInitialObject;
 
+import com.marvel.malavet.marvel.Models.CharacterObject.MarvelInitCharObject;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -20,7 +21,7 @@ public interface APICalls {
     );
 
     @GET("/v1/public/{characters}")
-    Call<MarvelInitialObject> getCharacter(
+    Call<MarvelInitCharObject> getCharacter(
             @Path("characters") String characters,
             @Query("nameStartsWith") String lady,
             @QueryMap HashMap<String, String> options

@@ -43,5 +43,16 @@
             android:layout_width="wrap_content"
             android:text="Get Comic Info" />
 
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@android:color/holo_purple"
+            android:text="Get other comics"
+            android:textColor="#FFFFFF" />
+
 
 </RelativeLayout>

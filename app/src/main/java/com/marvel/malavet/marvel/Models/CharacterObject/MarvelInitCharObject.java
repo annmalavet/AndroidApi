@@ -3,7 +3,7 @@ package com.marvel.malavet.marvel.Models.CharacterObject;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Example {
+public class MarvelInitCharObject {
 
     @SerializedName("code")
     @Expose
@@ -25,7 +25,7 @@ public class Example {
     private String etag;
     @SerializedName("data")
     @Expose
-    private Data data;
+    private Data0 data;
 
     public int getCode() {
         return code;
@@ -75,11 +75,11 @@ public class Example {
         this.etag = etag;
     }
 
-    public Data getData() {
+    public Data0 getData() {
         return data;
     }
 
-    public void setData(Data data) {
+    public void setData(Data0 data) {
         this.data = data;
     }
 

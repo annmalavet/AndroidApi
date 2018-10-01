@@ -2,6 +2,7 @@ package com.marvel.malavet.marvel;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -41,11 +42,22 @@ public class Main extends AppCompatActivity {
     private TextView txtview;
     //button click
     private View.OnClickListener handleClick = new View.OnClickListener() {
-        public void onClick(View arg0) {
-            if (bookInfo.isEmpty()) {
-                button.setText("No Info Available");
-            } else {
-                Toast.makeText(Main.this, bookInfo, Toast.LENGTH_SHORT).show();
+        public void onClick(View v) {
+
+            switch (v.getId()) {
+                case R.id.button: {
+                    if (bookInfo.isEmpty()) {
+                        button.setText("No Info Available");
+                    } else {
+                        Toast.makeText(Main.this, bookInfo, Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                }
+                case R.id.button0: {
+                    Intent myIntent = new Intent(Main.this, CharacterActivity.class);
+                    Main.this.startActivity(myIntent);
+                    break;
+                }
             }
         }
     };
@@ -58,13 +70,14 @@ public class Main extends AppCompatActivity {
             Toast.makeText(Main.this, "You must be connected to the internet for this app to function.", Toast.LENGTH_SHORT).show();
         }
         setContentView(R.layout.comic);
+        Button button1 = findViewById(R.id.button0);
+        button1.setOnClickListener(handleClick);
         context = this;
         progress = new ProgressDialog(this);
         progress.setMessage("Loading....");
         progress.show();
         //make hash for api call
         APIHash apiHash = new APIHash();
-        //make client object - call API to get comic book
         ClientDefinition cd = new ClientDefinition(context);
         APICalls service = cd.getRetrofitInstance().create(APICalls.class);
         HashMap<String, String> hm = apiHash.makeApiParam();
